@@ -1,11 +1,148 @@
-Privacy Policy
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Política de privacidad — Pizarra Financiera</title>
+<meta name="description" content="Política de privacidad de Pizarra Financiera: qué datos usamos a través de las integraciones con TikTok, Facebook e Instagram, y cómo los protegemos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
 
-This app is used as a personal automation tool to upload video content to TikTok.
+<header class="site">
+  <nav class="wrap">
+    <a href="index.html" class="brand">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="13" rx="2" stroke="#FBF8F3" stroke-width="1.6"/><path d="M7 20h10" stroke="#FBF8F3" stroke-width="1.6" stroke-linecap="round"/><path d="M7 9l3 3 6-5" stroke="#D8362B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      Pizarra Financiera
+    </a>
+    <button class="nav-toggle" aria-label="Abrir menú" onclick="document.getElementById('navlinks').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <ul id="navlinks">
+      <li><a href="index.html#sobre">Sobre nosotros</a></li>
+      <li><a href="index.html#hacemos">Qué hacemos</a></li>
+      <li><a href="index.html#proceso">Cómo trabajamos</a></li>
+      <li><a href="index.html#plataformas">Dónde encontrarnos</a></li>
+      <li><a href="contact.html">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
 
-The app may access basic TikTok profile information and upload permissions only after the user authorizes access.
+<main>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow">Legal</p>
+      <h1>Política de privacidad</h1>
+      <p class="updated">Última actualización: 5 de agosto de 2026</p>
+    </div>
+  </section>
 
-The app does not sell personal data, does not share data with third parties, and does not store TikTok passwords.
+  <article class="legal">
 
-Access tokens are used only to upload content to the authorized TikTok account.
+    <h2>1. Quiénes somos</h2>
+    <p>
+      Esta política describe cómo <strong>Pizarra Financiera</strong> maneja la información en el sitio
+      <strong>automatizacionredes.github.io</strong> y en su integración con plataformas de redes sociales
+      (Facebook, Instagram, YouTube y TikTok) usadas para publicar contenido educativo sobre finanzas
+      personales.
+    </p>
 
-Users can revoke access from their TikTok account settings at any time.
+    <h2>2. Qué datos usamos</h2>
+    <p>
+      El Sitio en sí es estático e informativo: no tiene formularios de registro, no crea cuentas de
+      usuario y no usa cookies de rastreo publicitario. Los únicos datos que gestionamos provienen de
+      nuestra propia integración con las APIs de las plataformas donde publicamos, específicamente:
+    </p>
+    <ul>
+      <li><strong>Identificadores básicos de perfil</strong> (nombre de usuario, ID de cuenta) de la cuenta de Pizarra Financiera en TikTok, obtenidos mediante TikTok Login Kit.</li>
+      <li><strong>Tokens de acceso y actualización</strong> que autorizan la publicación de video mediante la Content Posting API de TikTok.</li>
+      <li><strong>Tokens de acceso de página</strong> de Facebook e Instagram, usados exclusivamente para publicar contenido en nuestras propias páginas.</li>
+    </ul>
+
+    <div class="callout">
+      Estos datos corresponden a la <strong>cuenta oficial de Pizarra Financiera</strong>, no a cuentas de
+      terceros. No recolectamos datos personales de las personas que ven nuestro contenido.
+    </div>
+
+    <h2>3. Para qué usamos estos datos</h2>
+    <p>
+      Usamos exclusivamente estos datos para automatizar la publicación de video ya aprobado por una
+      persona en nuestras propias cuentas de Facebook, Instagram, YouTube y TikTok. No se usan para
+      ningún otro propósito.
+    </p>
+
+    <h2>4. Con quién compartimos datos</h2>
+    <p>
+      No vendemos, alquilamos ni compartimos estos datos con terceros. Los tokens de acceso se comunican
+      únicamente con los servidores oficiales de la plataforma correspondiente (Meta o TikTok) para
+      efectuar la publicación autorizada.
+    </p>
+
+    <h2>5. Cómo protegemos los datos</h2>
+    <p>
+      Los tokens de acceso se almacenan de forma local y cifrada en la infraestructura donde corre nuestro
+      sistema de publicación, con acceso restringido. Los tokens de TikTok se renuevan automáticamente y
+      los de Facebook/Instagram se generan como tokens de página de larga duración, siguiendo las prácticas
+      recomendadas por cada plataforma.
+    </p>
+
+    <h2>6. Retención y eliminación</h2>
+    <p>
+      Conservamos los tokens de acceso mientras la integración esté activa. Si se revoca la autorización
+      desde la plataforma correspondiente, o si decidimos discontinuar la integración, los tokens dejan de
+      usarse y se eliminan de nuestros sistemas.
+    </p>
+
+    <h2>7. Tus derechos</h2>
+    <p>
+      Si tenés alguna pregunta sobre el tratamiento de datos relacionados con nuestra integración con
+      TikTok, Facebook o Instagram, podés escribirnos y responderemos en un plazo razonable.
+    </p>
+
+    <h2>8. Menores de edad</h2>
+    <p>
+      El Sitio y nuestro contenido no están dirigidos a menores de 13 años. No recolectamos
+      intencionalmente datos de menores.
+    </p>
+
+    <h2>9. Cambios a esta política</h2>
+    <p>
+      Podemos actualizar esta Política de privacidad en cualquier momento. Los cambios entran en vigor al
+      publicarse en esta página, con la fecha de actualización correspondiente.
+    </p>
+
+    <h2>10. Contacto</h2>
+    <p>
+      Preguntas sobre esta política: <a class="inline" href="mailto:brayanherreragabriel@outlook.com">brayanherreragabriel@outlook.com</a>
+      o visita nuestra <a class="inline" href="contact.html">página de contacto</a>.
+    </p>
+
+  </article>
+</main>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div>
+      <a href="index.html" class="brand" style="margin-bottom:8px;">
+        <span class="mark">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="13" rx="2" stroke="#FBF8F3" stroke-width="1.6"/><path d="M7 20h10" stroke="#FBF8F3" stroke-width="1.6" stroke-linecap="round"/><path d="M7 9l3 3 6-5" stroke="#D8362B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        Pizarra Financiera
+      </a>
+      <p class="copyright">© 2026 Pizarra Financiera. Contenido educativo, no asesoría financiera.</p>
+    </div>
+    <ul class="footer-links">
+      <li><a href="terms.html">Términos de servicio</a></li>
+      <li><a href="privacy.html">Política de privacidad</a></li>
+      <li><a href="contact.html">Contacto</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>
