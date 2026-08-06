@@ -1,2 +1,511 @@
-<h1>AutomatizacionRedes</h1>
-<p>Herramienta personal para publicar contenido de video automáticamente en mis cuentas de redes sociales (TikTok, Instagram, Facebook).</p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pizarra Financiera — Educación financiera en video</title>
+<meta name="description" content="Pizarra Financiera produce videos cortos de educación financiera en español, inglés y alemán: ahorro, presupuesto e inversión, revisados siempre por una persona antes de publicarse.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FBF8F3;
+    --paper-alt:#F3EEE3;
+    --ink:#1B1B1B;
+    --ink-soft:#4A453D;
+    --muted:#8A8377;
+    --red:#D8362B;
+    --red-soft:#F6DAD6;
+    --green:#4F7A5B;
+    --line:#E4DCCB;
+    --card:#FFFFFF;
+    --radius:14px;
+    --max:1120px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Baloo 2',sans-serif;
+    margin:0;
+    color:var(--ink);
+  }
+  .eyebrow{
+    font-family:'Space Mono',monospace;
+    font-size:.72rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--red);
+    font-weight:700;
+  }
+  a{color:inherit;}
+  img,svg{display:block;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+
+  /* underline squiggle used as brand signature */
+  .squiggle{
+    display:block;
+    width:100%;
+    height:10px;
+    margin-top:2px;
+  }
+
+  /* NAV */
+  header.site{
+    position:sticky;top:0;z-index:50;
+    background:rgba(251,248,243,.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    padding-top:14px;padding-bottom:14px;
+  }
+  .brand{
+    display:flex;align-items:center;gap:10px;
+    font-family:'Baloo 2';font-weight:800;font-size:1.18rem;
+    text-decoration:none;color:var(--ink);
+  }
+  .brand .mark{
+    width:34px;height:34px;border-radius:8px;
+    background:var(--ink);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .brand .mark svg{width:20px;height:20px;}
+  nav ul{
+    list-style:none;display:flex;gap:28px;margin:0;padding:0;
+  }
+  nav ul a{
+    text-decoration:none;font-weight:600;font-size:.94rem;color:var(--ink-soft);
+    transition:color .15s;
+  }
+  nav ul a:hover{color:var(--red);}
+  .nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:6px;}
+  .nav-toggle span{display:block;width:22px;height:2px;background:var(--ink);margin:5px 0;}
+
+  /* HERO */
+  .hero{padding:64px 0 56px;}
+  .hero .grid{
+    display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;
+  }
+  .hero h1{
+    font-size:clamp(2.1rem,4.4vw,3.4rem);
+    line-height:1.08;font-weight:800;
+    margin-top:14px;
+  }
+  .hero h1 .hl{position:relative;white-space:nowrap;}
+  .hero p.lede{
+    margin-top:20px;font-size:1.08rem;color:var(--ink-soft);max-width:46ch;
+  }
+  .pillars-inline{
+    margin-top:26px;display:flex;flex-wrap:wrap;gap:10px;
+  }
+  .pillars-inline span{
+    font-family:'Space Mono';font-size:.78rem;font-weight:700;
+    background:var(--card);border:1px solid var(--line);
+    padding:6px 12px;border-radius:999px;color:var(--ink-soft);
+  }
+  .pillars-inline span::before{content:"● ";color:var(--red);}
+
+  .cta-row{margin-top:30px;display:flex;gap:14px;flex-wrap:wrap;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:12px 20px;border-radius:10px;font-weight:700;font-size:.95rem;
+    text-decoration:none;transition:transform .15s;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--ink);color:var(--paper);}
+  .btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink);}
+
+  /* checklist card — signature element */
+  .checklist-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:22px 24px;
+    box-shadow:0 18px 36px -22px rgba(27,27,27,.35);
+    transform:rotate(-1.6deg);
+    max-width:340px;
+    margin-left:auto;
+  }
+  .checklist-card .tag{
+    font-family:'Space Mono';font-size:.72rem;font-weight:700;
+    letter-spacing:.1em;color:var(--muted);text-transform:uppercase;
+  }
+  .checklist-card ul{list-style:none;margin:14px 0 0;padding:0;}
+  .checklist-card li{
+    display:flex;align-items:center;gap:10px;
+    padding:9px 0;border-bottom:1px dashed var(--line);
+    font-weight:600;font-size:.98rem;
+  }
+  .checklist-card li:last-child{border-bottom:none;}
+  .check{
+    width:18px;height:18px;border-radius:5px;background:var(--green);
+    flex:0 0 auto;display:flex;align-items:center;justify-content:center;
+  }
+  .check svg{width:11px;height:11px;}
+
+  /* dashed divider motif */
+  .divider{
+    height:2px;
+    background-image:repeating-linear-gradient(90deg,var(--ink) 0 10px,transparent 10px 20px);
+    opacity:.15;
+    margin:0;
+  }
+
+  section{padding:72px 0;}
+  section.alt{background:var(--paper-alt);}
+  .section-head{max-width:640px;margin-bottom:40px;}
+  .section-head h2{font-size:clamp(1.6rem,3vw,2.2rem);margin-top:8px;}
+  .section-head p{color:var(--ink-soft);margin-top:12px;font-size:1.02rem;}
+
+  /* about */
+  .about-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:48px;align-items:start;}
+  .about-grid p{color:var(--ink-soft);font-size:1.02rem;margin:0 0 16px;}
+  .fact-list{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:22px;
+  }
+  .fact-list dt{
+    font-family:'Space Mono';font-size:.72rem;color:var(--muted);
+    text-transform:uppercase;letter-spacing:.08em;
+  }
+  .fact-list dd{margin:2px 0 16px;font-weight:700;font-size:1rem;}
+  .fact-list dd:last-child{margin-bottom:0;}
+
+  /* pillars cards */
+  .cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .pcard{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:26px;
+  }
+  .pcard .num{
+    font-family:'Space Mono';font-weight:700;color:var(--red);font-size:.85rem;
+  }
+  .pcard h3{font-size:1.2rem;margin-top:10px;}
+  .pcard p{color:var(--ink-soft);font-size:.95rem;margin-top:8px;}
+
+  /* process steps */
+  .steps{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:step;
+  }
+  .step{position:relative;padding-top:8px;}
+  .step .idx{
+    font-family:'Baloo 2';font-weight:800;font-size:1.6rem;color:var(--red);
+  }
+  .step h3{font-size:1.02rem;margin-top:6px;}
+  .step p{color:var(--ink-soft);font-size:.92rem;margin-top:6px;}
+  .step-note{
+    margin-top:34px;background:var(--red-soft);border-radius:var(--radius);
+    padding:16px 20px;font-size:.94rem;color:#7A2119;font-weight:600;
+  }
+
+  /* platforms */
+  .plat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+  .plat-card{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:22px;text-decoration:none;display:flex;flex-direction:column;gap:10px;
+    transition:border-color .15s, transform .15s;
+  }
+  .plat-card:hover{border-color:var(--ink);transform:translateY(-3px);}
+  .plat-card .icon{
+    width:38px;height:38px;border-radius:9px;background:var(--paper-alt);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .plat-card .icon svg{width:20px;height:20px;}
+  .plat-card h3{font-size:1.02rem;}
+  .plat-card .handle{color:var(--muted);font-size:.86rem;font-family:'Space Mono';}
+  .status{
+    display:inline-flex;width:fit-content;font-size:.72rem;font-weight:700;
+    padding:3px 10px;border-radius:999px;font-family:'Space Mono';
+  }
+  .status.live{background:#E4F0E7;color:#2C6B41;}
+  .status.soon{background:#F3EAD1;color:#8A6414;}
+
+  /* contact */
+  .contact-box{
+    background:var(--ink);color:var(--paper);border-radius:20px;
+    padding:48px;display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center;
+  }
+  .contact-box h2{color:var(--paper);}
+  .contact-box p{color:#CFC9BC;margin-top:12px;max-width:44ch;}
+  .contact-box .btn-primary{background:var(--red);color:#fff;}
+  .contact-email{
+    font-family:'Space Mono';font-size:1.05rem;word-break:break-all;
+  }
+
+  footer{padding:40px 0 50px;border-top:1px solid var(--line);}
+  .footer-grid{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:24px;}
+  .footer-links{display:flex;gap:22px;flex-wrap:wrap;list-style:none;padding:0;margin:0;}
+  .footer-links a{text-decoration:none;color:var(--ink-soft);font-size:.9rem;font-weight:600;}
+  .footer-links a:hover{color:var(--red);}
+  .copyright{color:var(--muted);font-size:.85rem;margin-top:18px;}
+
+  @media (max-width: 880px){
+    .hero .grid{grid-template-columns:1fr;gap:40px;}
+    .checklist-card{margin:0;transform:rotate(-1deg);}
+    .about-grid{grid-template-columns:1fr;}
+    .cards3{grid-template-columns:1fr;}
+    .steps{grid-template-columns:1fr 1fr;}
+    .plat-grid{grid-template-columns:1fr 1fr;}
+    .contact-box{grid-template-columns:1fr;padding:32px;}
+    nav ul{
+      position:absolute;top:100%;left:0;right:0;background:var(--paper);
+      flex-direction:column;gap:0;border-bottom:1px solid var(--line);
+      display:none;
+    }
+    nav ul.open{display:flex;}
+    nav ul a{display:block;padding:14px 24px;border-top:1px solid var(--line);}
+    .nav-toggle{display:block;}
+  }
+  @media (max-width: 560px){
+    .steps{grid-template-columns:1fr;}
+    .plat-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <nav class="wrap">
+    <a href="#top" class="brand">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="13" rx="2" stroke="#FBF8F3" stroke-width="1.6"/><path d="M7 20h10" stroke="#FBF8F3" stroke-width="1.6" stroke-linecap="round"/><path d="M7 9l3 3 6-5" stroke="#D8362B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      Pizarra Financiera
+    </a>
+    <button class="nav-toggle" aria-label="Abrir menú" onclick="document.getElementById('navlinks').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <ul id="navlinks">
+      <li><a href="#sobre">Sobre nosotros</a></li>
+      <li><a href="#hacemos">Qué hacemos</a></li>
+      <li><a href="#proceso">Cómo trabajamos</a></li>
+      <li><a href="#plataformas">Dónde encontrarnos</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap grid">
+      <div>
+        <p class="eyebrow">Educación financiera en video</p>
+        <h1>Ahorrar, presupuestar e invertir, explicado en <span class="hl">tres idiomas</span>.</h1>
+        <p class="lede">
+          Pizarra Financiera es un proyecto de contenido audiovisual que enseña finanzas personales
+          en video corto — español, inglés y alemán — para que cualquier persona pueda entender su
+          dinero sin tecnicismos. Cada video que publicamos fue revisado y aprobado por una persona
+          antes de salir al aire.
+        </p>
+        <div class="pillars-inline">
+          <span>Ahorro</span>
+          <span>Presupuesto</span>
+          <span>Inversión</span>
+        </div>
+        <div class="cta-row">
+          <a href="#plataformas" class="btn btn-primary">Ver dónde publicamos</a>
+          <a href="#sobre" class="btn btn-ghost">Conocer el proyecto</a>
+        </div>
+      </div>
+
+      <div class="checklist-card">
+        <p class="tag">Lista del mes</p>
+        <ul>
+          <li><span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Revisar ingresos</li>
+          <li><span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Ajustar gastos fijos</li>
+          <li><span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Separar el ahorro</li>
+          <li><span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Revisar inversiones</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SOBRE -->
+  <section id="sobre">
+    <div class="wrap about-grid">
+      <div>
+        <p class="eyebrow">Sobre nosotros</p>
+        <h2>Un proyecto hecho para explicar el dinero con claridad</h2>
+        <p style="margin-top:18px;">
+          Nació de una idea simple: la educación financiera suele estar llena de jerga que aleja
+          justo a quienes más la necesitan. Pizarra Financiera traduce esos conceptos a explicaciones
+          cortas y directas — sin promesas de enriquecimiento rápido, sin fórmulas mágicas.
+        </p>
+        <p>
+          Producimos el contenido de forma semi-automática, pero la decisión de qué se publica siempre
+          es humana: cada video pasa por una revisión de calidad antes de programarse. La tecnología
+          se encarga de la logística de publicación, nunca del criterio editorial.
+        </p>
+      </div>
+      <dl class="fact-list">
+        <dt>Formato</dt>
+        <dd>Videos cortos verticales</dd>
+        <dt>Idiomas</dt>
+        <dd>Español · Inglés · Alemán</dd>
+        <dt>Temas</dt>
+        <dd>Ahorro, presupuesto e inversión básica</dd>
+        <dt>Revisión editorial</dt>
+        <dd>100% humana antes de publicar</dd>
+      </dl>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- QUÉ HACEMOS -->
+  <section id="hacemos" class="alt">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Qué hacemos</p>
+        <h2>Tres temas, explicados una y otra vez desde ángulos distintos</h2>
+        <p>No enseñamos productos financieros específicos ni damos asesoría personalizada. Enseñamos hábitos y conceptos que aplican sin importar cuánto ganes.</p>
+      </div>
+      <div class="cards3">
+        <div class="pcard">
+          <p class="num">01</p>
+          <h3>Ahorro</h3>
+          <p>Cómo separar dinero antes de gastarlo, fondos de emergencia y errores comunes al intentar ahorrar.</p>
+        </div>
+        <div class="pcard">
+          <p class="num">02</p>
+          <h3>Presupuesto</h3>
+          <p>Métodos simples para organizar ingresos y gastos sin depender de hojas de cálculo complicadas.</p>
+        </div>
+        <div class="pcard">
+          <p class="num">03</p>
+          <h3>Inversión básica</h3>
+          <p>Conceptos introductorios de inversión, pensados para quien apenas empieza y quiere entender antes de arriesgar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CÓMO TRABAJAMOS -->
+  <section id="proceso">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Cómo trabajamos</p>
+        <h2>De la idea al video publicado</h2>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <p class="idx">01</p>
+          <h3>Guion y producción</h3>
+          <p>Se genera un video corto sobre un tema puntual de finanzas personales.</p>
+        </div>
+        <div class="step">
+          <p class="idx">02</p>
+          <h3>Revisión humana</h3>
+          <p>Una persona evalúa calidad y precisión antes de aprobar el video.</p>
+        </div>
+        <div class="step">
+          <p class="idx">03</p>
+          <h3>Programación</h3>
+          <p>Se decide cuándo y en qué plataforma sale cada video aprobado.</p>
+        </div>
+        <div class="step">
+          <p class="idx">04</p>
+          <h3>Publicación</h3>
+          <p>El video se publica automáticamente en cada red configurada.</p>
+        </div>
+      </div>
+      <p class="step-note">La automatización nunca decide si un video es bueno — solo se encarga de publicarlo una vez aprobado por una persona.</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PLATAFORMAS -->
+  <section id="plataformas" class="alt">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Dónde encontrarnos</p>
+        <h2>Seguí el contenido en tu plataforma favorita</h2>
+      </div>
+      <div class="plat-grid">
+        <a class="plat-card" href="https://www.facebook.com/profile.php?id=61592804398117" target="_blank" rel="noopener">
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none"><path d="M14 9h3V6h-3c-2 0-3.5 1.5-3.5 3.5V11H8v3h2.5v6h3v-6H16l.5-3h-3v-1.2c0-.6.4-.8 1-.8Z" fill="#1B1B1B"/></svg></span>
+          <h3>Facebook</h3>
+          <span class="handle">PizarraFinanciera</span>
+          <span class="status live">En vivo</span>
+        </a>
+        <a class="plat-card" href="https://www.instagram.com/pizarra_financiera/" target="_blank" rel="noopener">
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="5" stroke="#1B1B1B" stroke-width="1.6"/><circle cx="12" cy="12" r="3.4" stroke="#1B1B1B" stroke-width="1.6"/><circle cx="16.6" cy="7.4" r="1" fill="#1B1B1B"/></svg></span>
+          <h3>Instagram</h3>
+          <span class="handle">@pizarra_financiera</span>
+          <span class="status live">En vivo</span>
+        </a>
+        <a class="plat-card" href="https://www.youtube.com/@Pizarra_Financiera" target="_blank" rel="noopener">
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="12" rx="3" stroke="#1B1B1B" stroke-width="1.6"/><path d="M10.5 9.5l4 2.5-4 2.5v-5Z" fill="#1B1B1B"/></svg></span>
+          <h3>YouTube</h3>
+          <span class="handle">@Pizarra_Financiera</span>
+          <span class="status live">En vivo</span>
+        </a>
+        <a class="plat-card" href="https://www.tiktok.com/@pizarra.financiera" target="_blank" rel="noopener">
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none"><path d="M14 4v9.4a2.6 2.6 0 1 1-2-2.5" stroke="#1B1B1B" stroke-width="1.6" stroke-linecap="round"/><path d="M14 4c.3 2 1.8 3.4 3.6 3.6" stroke="#1B1B1B" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+          <h3>TikTok</h3>
+          <span class="handle">@pizarra.financiera</span>
+          <span class="status soon">Próximamente</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CONTACTO -->
+  <section id="contacto">
+    <div class="wrap">
+      <div class="contact-box">
+        <div>
+          <p class="eyebrow" style="color:#E8998F;">Contacto</p>
+          <h2>¿Preguntas, ideas o prensa?</h2>
+          <p>Escribinos directamente — leemos todos los correos.</p>
+        </div>
+        <div>
+          <p class="contact-email">brayanherreragabriel@outlook.com</p>
+          <a href="mailto:brayanherreragabriel@outlook.com" class="btn btn-primary" style="margin-top:16px;">Enviar un correo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div>
+      <a href="#top" class="brand" style="margin-bottom:8px;">
+        <span class="mark">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="13" rx="2" stroke="#FBF8F3" stroke-width="1.6"/><path d="M7 20h10" stroke="#FBF8F3" stroke-width="1.6" stroke-linecap="round"/><path d="M7 9l3 3 6-5" stroke="#D8362B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        Pizarra Financiera
+      </a>
+      <p class="copyright">© 2026 Pizarra Financiera. Contenido educativo, no asesoría financiera.</p>
+    </div>
+    <ul class="footer-links">
+      <li><a href="terms.html">Términos de servicio</a></li>
+      <li><a href="privacy.html">Política de privacidad</a></li>
+      <li><a href="mailto:brayanherreragabriel@outlook.com">Contacto</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>
