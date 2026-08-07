@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AutomatizacionRedes — Producción y publicación de video automatizada</title>
-<meta name="description" content="AutomatizacionRedes es un estudio que produce contenido en video con IA, revisado siempre por una persona, y lo publica automáticamente en varios canales y plataformas.">
+<title>AutomatizacionRedes — Organización y publicación programada de videos</title>
+<meta name="description" content="AutomatizacionRedes es una herramienta interna para organizar, programar y publicar videos creados por nuestro equipo en distintos canales y plataformas.">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" href="icon-192.png" type="image/png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -53,7 +53,6 @@
   img,svg{display:block;}
   .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
 
-  /* underline squiggle used as brand signature */
   .squiggle{
     display:block;
     width:100%;
@@ -61,7 +60,6 @@
     margin-top:2px;
   }
 
-  /* NAV */
   header.site{
     position:sticky;top:0;z-index:50;
     background:rgba(251,248,243,.92);
@@ -94,7 +92,6 @@
   .nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:6px;}
   .nav-toggle span{display:block;width:22px;height:2px;background:var(--ink);margin:5px 0;}
 
-  /* HERO */
   .hero{padding:64px 0 56px;}
   .hero .grid{
     display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;
@@ -106,7 +103,7 @@
   }
   .hero h1 .hl{position:relative;white-space:nowrap;}
   .hero p.lede{
-    margin-top:20px;font-size:1.08rem;color:var(--ink-soft);max-width:46ch;
+    margin-top:20px;font-size:1.08rem;color:var(--ink-soft);max-width:48ch;
   }
   .pillars-inline{
     margin-top:26px;display:flex;flex-wrap:wrap;gap:10px;
@@ -128,7 +125,6 @@
   .btn-primary{background:var(--ink);color:var(--paper);}
   .btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink);}
 
-  /* checklist card — signature element */
   .checklist-card{
     background:var(--card);
     border:1px solid var(--line);
@@ -156,7 +152,6 @@
   }
   .check svg{width:11px;height:11px;}
 
-  /* dashed divider motif */
   .divider{
     height:2px;
     background-image:repeating-linear-gradient(90deg,var(--ink) 0 10px,transparent 10px 20px);
@@ -166,11 +161,10 @@
 
   section{padding:72px 0;}
   section.alt{background:var(--paper-alt);}
-  .section-head{max-width:640px;margin-bottom:40px;}
+  .section-head{max-width:680px;margin-bottom:40px;}
   .section-head h2{font-size:clamp(1.6rem,3vw,2.2rem);margin-top:8px;}
   .section-head p{color:var(--ink-soft);margin-top:12px;font-size:1.02rem;}
 
-  /* about */
   .about-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:48px;align-items:start;}
   .about-grid p{color:var(--ink-soft);font-size:1.02rem;margin:0 0 16px;}
   .fact-list{
@@ -184,7 +178,6 @@
   .fact-list dd{margin:2px 0 16px;font-weight:700;font-size:1rem;}
   .fact-list dd:last-child{margin-bottom:0;}
 
-  /* pillars cards */
   .cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
   .pcard{
     background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
@@ -196,7 +189,6 @@
   .pcard h3{font-size:1.2rem;margin-top:10px;}
   .pcard p{color:var(--ink-soft);font-size:.95rem;margin-top:8px;}
 
-  /* process steps */
   .steps{
     display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:step;
   }
@@ -211,7 +203,6 @@
     padding:16px 20px;font-size:.94rem;color:#7A2119;font-weight:600;
   }
 
-  /* platforms */
   .plat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
   .plat-card{
     background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
@@ -233,7 +224,6 @@
   .status.live{background:#E4F0E7;color:#2C6B41;}
   .status.soon{background:#F3EAD1;color:#8A6414;}
 
-  /* contact */
   .contact-box{
     background:var(--ink);color:var(--paper);border-radius:20px;
     padding:48px;display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center;
@@ -274,7 +264,6 @@
     .plat-grid{grid-template-columns:1fr;}
   }
 
-  /* ===== Legal / info pages ===== */
   .page-hero{padding:56px 0 40px;border-bottom:1px solid var(--line);}
   .page-hero .eyebrow{margin-bottom:10px;}
   .page-hero h1{font-size:clamp(1.9rem,3.6vw,2.6rem);}
@@ -297,7 +286,6 @@
     padding:18px 20px;margin:22px 0;font-size:.95rem;color:var(--ink-soft);
   }
 
-  /* ===== Contact page ===== */
   .contact-hero{padding:56px 0 0;}
   .contact-page-grid{
     display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:36px;padding-bottom:70px;
@@ -331,8 +319,6 @@
     .contact-page-grid{grid-template-columns:1fr;}
   }
 
-
-  /* channel spotlight */
   .channel-card{
     background:var(--card);border:1px solid var(--line);border-radius:20px;
     padding:36px;display:grid;grid-template-columns:.9fr 1.1fr;gap:36px;align-items:center;
@@ -397,22 +383,22 @@
 
 <main id="top">
 
-  <!-- HERO -->
   <section class="hero">
     <div class="wrap grid">
       <div>
-        <p class="eyebrow">Estudio de contenido automatizado</p>
-        <h1>Producimos video con IA. Una persona lo aprueba. Se publica solo.</h1>
+        <p class="eyebrow">Gestión y publicación de contenido en video</p>
+        <h1>Creamos videos en equipo y los publicamos de forma organizada.</h1>
         <p class="lede">
-          AutomatizacionRedes es el estudio detrás de varios canales de contenido en video corto,
-          publicados en distintos idiomas y plataformas. Generamos el video con ayuda de inteligencia
-          artificial, pero cada pieza pasa por revisión humana antes de salir al aire — la tecnología
-          se encarga de la logística de publicación, nunca del criterio editorial.
+          AutomatizacionRedes es una herramienta interna que nos ayuda a organizar,
+          programar y publicar videos cortos en distintos canales y plataformas.
+          Los videos son preparados, editados y revisados por nuestro equipo antes
+          de publicarse. La herramienta facilita la logística de publicación,
+          horarios y seguimiento, sin reemplazar el trabajo creativo ni editorial.
         </p>
         <div class="pillars-inline">
-          <span>Producción con IA</span>
-          <span>Revisión humana</span>
-          <span>Publicación automática</span>
+          <span>Videos creados en equipo</span>
+          <span>Revisión editorial</span>
+          <span>Publicación programada</span>
         </div>
         <div class="cta-row">
           <a href="#canales" class="btn btn-primary">Ver nuestros canales</a>
@@ -421,12 +407,12 @@
       </div>
 
       <div class="checklist-card">
-        <p class="tag">Pipeline de publicación</p>
+        <p class="tag">Flujo de publicación</p>
         <ul>
-          <li><span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Guion y producción</li>
-          <li><span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Revisión humana</li>
+          <li><span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Planeación de contenido</li>
+          <li><span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Edición y revisión</li>
           <li><span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Programación</li>
-          <li><span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Publicación multiplataforma</li>
+          <li><span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Publicación en plataformas</li>
         </ul>
       </div>
     </div>
@@ -434,21 +420,21 @@
 
   <div class="divider"></div>
 
-  <!-- SOBRE -->
   <section id="sobre">
     <div class="wrap about-grid">
       <div>
         <p class="eyebrow">Sobre nosotros</p>
-        <h2>Un estudio construido alrededor de un pipeline, no de un solo canal</h2>
+        <h2>Una herramienta creada para mantener ordenado el trabajo de publicación</h2>
         <p style="margin-top:18px;">
-          AutomatizacionRedes nació para resolver un problema puntual: generar contenido en video ya no es
-          el cuello de botella, publicarlo consistentemente en varias plataformas y varios idiomas sí lo es.
-          Construimos un sistema que automatiza esa parte operativa.
+          AutomatizacionRedes nació para resolver un problema puntual: cuando se manejan varios
+          canales, la organización y publicación constante del contenido puede volverse lenta y
+          repetitiva. Por eso construimos una herramienta interna que nos ayuda a ordenar videos,
+          programarlos y publicarlos en las plataformas correspondientes.
         </p>
         <p>
-          Lo que nunca automatizamos es el criterio: cada video que producimos, sin importar el canal, es
-          revisado por una persona antes de aprobarse. La IA ayuda a generar; una persona decide qué es lo
-          suficientemente bueno para publicarse.
+          El criterio editorial sigue siendo responsabilidad del equipo. Cada video se prepara,
+          edita y revisa antes de aprobarse. La herramienta solo facilita la parte operativa:
+          organizar archivos, respetar horarios y publicar contenido ya aprobado.
         </p>
       </div>
       <dl class="fact-list">
@@ -459,36 +445,39 @@
         <dt>Plataformas</dt>
         <dd>TikTok, Instagram, Facebook, YouTube</dd>
         <dt>Revisión editorial</dt>
-        <dd>100% humana antes de publicar</dd>
+        <dd>Equipo humano antes de publicar</dd>
       </dl>
     </div>
   </section>
 
   <div class="divider"></div>
 
-  <!-- QUÉ HACEMOS -->
   <section id="hacemos" class="alt">
     <div class="wrap">
       <div class="section-head">
         <p class="eyebrow">Qué hacemos</p>
-        <h2>Un mismo sistema, aplicado a distintos canales de contenido</h2>
-        <p>No somos una agencia que gestiona cuentas de terceros: operamos nuestros propios canales, cada uno con su tema y su audiencia.</p>
+        <h2>Organizamos contenido de video para publicarlo de forma constante</h2>
+        <p>
+          No somos una agencia que gestiona cuentas de terceros: trabajamos con nuestros propios
+          canales, cada uno con su tema, formato y audiencia. AutomatizacionRedes nos ayuda a
+          coordinar la publicación sin perder control editorial.
+        </p>
       </div>
       <div class="cards3">
         <div class="pcard">
           <p class="num">01</p>
-          <h3>Producción con IA</h3>
-          <p>Generamos guion, voz y edición de cada video de forma semi-automática a partir de una idea o tema definido.</p>
+          <h3>Planeación y edición</h3>
+          <p>Preparamos videos cortos a partir de temas definidos por el equipo, cuidando formato, mensaje y claridad.</p>
         </div>
         <div class="pcard">
           <p class="num">02</p>
           <h3>Revisión editorial</h3>
-          <p>Una persona revisa calidad, precisión y tono antes de aprobar cualquier video para publicación.</p>
+          <p>El equipo revisa calidad, precisión y tono antes de aprobar cualquier video para publicación.</p>
         </div>
         <div class="pcard">
           <p class="num">03</p>
-          <h3>Publicación automática</h3>
-          <p>Una vez aprobado, el sistema programa y publica el video en cada plataforma configurada, sin intervención manual.</p>
+          <h3>Publicación programada</h3>
+          <p>Una vez aprobado, el sistema ayuda a programar y publicar el video en la plataforma configurada.</p>
         </div>
       </div>
     </div>
@@ -496,13 +485,15 @@
 
   <div class="divider"></div>
 
-  <!-- CANALES -->
   <section id="canales">
     <div class="wrap">
       <div class="section-head">
         <p class="eyebrow">Nuestros canales</p>
         <h2>Los canales que operamos hoy</h2>
-        <p>Cada canal tiene su propio tema y audiencia, pero corre sobre el mismo pipeline de producción y publicación.</p>
+        <p>
+          Cada canal tiene su propio tema y audiencia, pero utiliza el mismo flujo interno
+          para organizar, programar y publicar contenido.
+        </p>
       </div>
 
       <div class="channel-card">
@@ -510,8 +501,8 @@
           <span class="channel-badge">● Canal activo</span>
           <h3>Pizarra Financiera</h3>
           <p class="desc">
-            Educación financiera en video corto — ahorro, presupuesto e inversión básica, explicado sin
-            tecnicismos, en español, inglés y alemán.
+            Educación financiera en video corto — ahorro, presupuesto e inversión básica,
+            explicado sin tecnicismos, en español, inglés y alemán.
           </p>
           <div class="channel-links">
             <a href="https://www.facebook.com/profile.php?id=61592804398117" target="_blank" rel="noopener">Facebook</a>
@@ -530,55 +521,56 @@
         </div>
       </div>
 
-      <div class="more-channels">Más canales en producción — próximamente.</div>
+      <div class="more-channels">Más canales en preparación.</div>
     </div>
   </section>
 
   <div class="divider"></div>
 
-  <!-- CÓMO TRABAJAMOS -->
   <section id="proceso" class="alt">
     <div class="wrap">
       <div class="section-head">
         <p class="eyebrow">Cómo trabajamos</p>
-        <h2>De la idea al video publicado, en cualquier canal</h2>
+        <h2>Del video preparado a la publicación programada</h2>
       </div>
       <div class="steps">
         <div class="step">
           <p class="idx">01</p>
-          <h3>Guion y producción</h3>
-          <p>Se genera un video corto sobre un tema puntual del canal correspondiente.</p>
+          <h3>Planeación</h3>
+          <p>El equipo define el tema, enfoque y plataforma para cada video.</p>
         </div>
         <div class="step">
           <p class="idx">02</p>
-          <h3>Revisión humana</h3>
-          <p>Una persona evalúa calidad y precisión antes de aprobar el video.</p>
+          <h3>Edición y revisión</h3>
+          <p>El video se edita y revisa antes de aprobarse para publicación.</p>
         </div>
         <div class="step">
           <p class="idx">03</p>
           <h3>Programación</h3>
-          <p>Se decide cuándo y en qué plataforma sale cada video aprobado.</p>
+          <p>Se define cuándo y en qué plataforma debe publicarse cada video.</p>
         </div>
         <div class="step">
           <p class="idx">04</p>
           <h3>Publicación</h3>
-          <p>El video se publica automáticamente en cada red configurada para ese canal.</p>
+          <p>La herramienta publica el video aprobado según la configuración indicada.</p>
         </div>
       </div>
-      <p class="step-note">La automatización nunca decide si un video es bueno — solo se encarga de publicarlo una vez aprobado por una persona.</p>
+      <p class="step-note">
+        La herramienta no reemplaza al equipo: solo facilita la organización, programación
+        y publicación de videos ya revisados.
+      </p>
     </div>
   </section>
 
   <div class="divider"></div>
 
-  <!-- CONTACTO -->
   <section id="contacto">
     <div class="wrap">
       <div class="contact-box">
         <div>
           <p class="eyebrow" style="color:#E8998F;">Contacto</p>
           <h2>¿Preguntas, ideas o prensa?</h2>
-          <p>Escribinos directamente — leemos todos los correos.</p>
+          <p>Escríbenos directamente — leemos todos los correos.</p>
         </div>
         <div>
           <p class="contact-email">brayanherreragabriel@outlook.com</p>
